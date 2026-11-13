@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Explora el catálogo de libros, leyendas y mitos disponibles." />
+    <meta name="theme-color" content="#FAF9F5" />
+    <title>Libros y mitos — Ecos del Pasado</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="js/leyendasData.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+<svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-book" viewBox="0 0 24 24">
+        <path d="M12 7v14m0-14C9.5 5.2 6.5 5 3 6v13c3.5-1 6.5-.8 9 1m0-13c2.5-1.8 5.5-2 9-1v13c-3.5-1-6.5-.8-9 1" />
+      </symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24">
+        <circle cx="10.8" cy="10.8" r="6.8" />
+        <path d="m16 16 4.5 4.5" />
+      </symbol>
+      <symbol id="icon-heart" viewBox="0 0 24 24">
+        <path d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8A4.7 4.7 0 0 1 12 6.3a4.7 4.7 0 0 1 8.8 2.5Z" />
+      </symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M5 12h14m-6-6 6 6-6 6" />
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16M4 12h16M4 17h16" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M18 6 6 18" />
+      </symbol>
+      <symbol id="icon-spark" viewBox="0 0 24 24">
+        <path d="m12 2 1.9 7.1L21 12l-7.1 1.9L12 21l-1.9-7.1L3 12l7.1-2.9L12 2Z" />
+      </symbol>
+      <symbol id="icon-leaf" viewBox="0 0 24 24">
+        <path d="M20 4c-8.6 0-14 3.7-14 10a6 6 0 0 0 6 6c6.3 0 8-7.4 8-16Z" />
+        <path d="M4 21c3-5 7-8 12-11" />
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 2" />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="m3 7 9 6 9-6" />
+      </symbol>
+      <symbol id="icon-waves" viewBox="0 0 24 24">
+        <path d="M2 8c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1M2 13c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1M2 18c2.5-2 4.5-2 7 0s4.5 2 7 0 4.5-2 6-1" />
+      </symbol>
+      <symbol id="icon-mountain" viewBox="0 0 24 24">
+        <path d="m2 20 7.5-14L14 14l2.5-4L22 20H2Z" />
+        <path d="m7.5 10 2 2 2-1M14 14l2 2 1.5-2" />
+      </symbol>
+      <symbol id="icon-forest" viewBox="0 0 24 24">
+        <path d="m12 2 7 9h-4l5 6h-6v5h-4v-5H4l5-6H5l7-9Z" />
+      </symbol>
+    </svg>
+
+<header class="site-header header-institucional">
+      <div class="header-inner">
+        <a class="brand institution-brand" href="index.html" aria-label="Instituto de Educación Superior Tecnológico Público Lurín, ir al inicio">
+          <div class="logo-container">
+            <img src="img/lurin-logo.png" alt="Logo IESTP Lurín" class="logo-instituto" />
+          </div>
+          <div class="texto-header">
+            <h1 class="titulo-completo">
+              Instituto de Educación Superior Tecnológico Público <span class="nombre-destacado">"Lurín"</span>
+            </h1>
+          </div>
+        </a>
+        <button
+          class="menu-toggle"
+          id="nav-toggle"
+          type="button"
+          aria-label="Abrir menú"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+        >
+          <svg class="icon"><use href="#icon-menu" /></svg>
+        </button>
+        <nav class="main-navigation" id="main-navigation" aria-label="Navegación principal">
+          <a class="nav-link" href="index.html">Inicio</a>
+          <a class="nav-link is-active" href="libros.html" aria-current="page">Libros</a>
+          <a class="nav-link" href="regiones.html">Regiones</a>
+          <a class="nav-link favorites-link" href="favoritos.html">Favoritos <span class="favorite-count" aria-label="0 libros favoritos">0</span></a>
+          <a class="nav-link" href="#account-dialog" data-account-trigger>Mi cuenta</a>
+          <a class="nav-link" href="creditos.html">Créditos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="legend-catalog catalog-section" id="libros" aria-labelledby="legend-catalog-title">
+          <h2 class="legend-catalog-title" id="legend-catalog-title">Leyendas y mitos disponibles</h2>
+          <div class="legend-category-filters" role="group" aria-label="Filtrar leyendas por categoría">
+            <button class="legend-filter active" type="button" data-categoria="todas" aria-pressed="true">Todas</button>
+            <button class="legend-filter" type="button" data-categoria="Selva" aria-pressed="false">Selva</button>
+            <button class="legend-filter" type="button" data-categoria="Sierra" aria-pressed="false">Sierra</button>
+            <button class="legend-filter" type="button" data-categoria="Costa" aria-pressed="false">Costa</button>
+            <button class="legend-filter" type="button" data-categoria="Mitos" aria-pressed="false">Mitos</button>
+          </div>
+          <div class="coastal-legend-grid legend-catalog-grid" id="legends-catalog"></div>
+        </section>
+        <p class="region-search-empty" id="region-search-empty" aria-live="polite" hidden>No se encontraron leyendas que coincidan con tu búsqueda.</p>
+    </main>
+
+<footer class="site-footer">
+      <div class="footer-main section-shell">
+        <div class="footer-brand">
+          <a class="brand" href="index.html"><span class="brand-mark"><svg class="icon"><use href="#icon-book" /></svg></span><span class="brand-name">la biblioteca<span>.</span></span></a>
+          <p>Un lugar tranquilo para encontrar<br />historias que se sienten como hogar.</p>
+          <span class="footer-note"><svg class="icon"><use href="#icon-leaf" /></svg> Hecho con cariño para lectores</span>
+        </div>
+        <div class="footer-column"><h3>Explora</h3><a href="regiones.html">Regiones del Perú</a></div>
+        <div class="footer-column"><h3>Tu biblioteca</h3><a href="favoritos.html">Mis favoritos</a><a href="creditos.html">Créditos institucionales</a><a href="index.html">Volver al inicio</a></div>
+        <div class="footer-column"><h3>¿Conversamos?</h3><a href="mailto:hola@labiblioteca.example">hola@labiblioteca.example</a><span>Estamos aquí para ayudarte</span><span>Lunes a viernes · 9 a 17 h</span></div>
+      </div>
+      <div class="footer-bottom section-shell"><span>© 2026 La Biblioteca. Un espacio para cada lector.</span><span>Lee a tu manera <span class="footer-heart">♥</span></span></div>
+    </footer>
+
+        <dialog class="book-dialog" id="book-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" aria-label="Cerrar detalles"><svg class="icon"><use href="#icon-close" /></svg></button>
+      <div class="dialog-content" id="dialog-content"></div>
+    </dialog>
+    <dialog class="account-dialog" id="account-dialog" aria-labelledby="account-title">
+      <button class="dialog-close" type="button" aria-label="Cerrar mi cuenta"><svg class="icon"><use href="#icon-close" /></svg></button>
+      <div class="account-content">
+        <span class="section-kicker">TU ESPACIO DE LECTURA</span>
+        <h2 id="account-title">Mi cuenta<span>.</span></h2>
+        <p>Guarda un nombre para darte la bienvenida cada vez que vuelvas.</p>
+        <form id="account-form" novalidate>
+          <label for="account-name">¿Cómo te llamas?</label>
+          <input id="account-name" name="name" maxlength="50" placeholder="Tu nombre" required />
+          <label for="account-email">Tu correo electrónico</label>
+          <input id="account-email" name="email" type="email" placeholder="nombre@correo.com" required />
+          <button class="button button-primary" type="submit">Guardar mis datos <svg class="icon"><use href="#icon-arrow" /></svg></button>
+          <p class="account-message" id="account-message" role="status"></p>
+        </form>
+      </div>
+    </dialog>
+    <dialog class="region-dialog" id="region-dialog" aria-labelledby="region-dialog-title">
+      <button class="dialog-close" type="button" aria-label="Cerrar historia"><svg class="icon"><use href="#icon-close" /></svg></button>
+      <article class="region-dialog-content">
+        <span class="section-kicker" id="region-dialog-kicker">TERRITORIO 01 · COSTA</span>
+        <h2 id="region-dialog-title">La Costa<span>.</span></h2>
+        <p class="region-dialog-intro" id="region-dialog-intro"></p>
+        <div class="region-dialog-reading" id="region-dialog-reading"></div>
+        <section class="coastal-legends" id="coastal-legends" aria-labelledby="coastal-legends-title" hidden>
+          <h3 id="coastal-legends-title">Las nueve leyendas de la Costa</h3>
+          <p class="coastal-legends-note">Cada tarjeta reutiliza la portada general de esta sección.</p>
+          <div class="coastal-legend-grid"></div>
+        </section>
+        <p class="region-dialog-caution">Las tradiciones orales son diversas y cambian según la comunidad y la época. Este recorrido es una introducción, no una versión única ni definitiva.</p>
+      </article>
+    </dialog>
+    <dialog class="legend-video-dialog" id="legend-video-dialog" aria-labelledby="legend-video-title">
+      <button class="dialog-close" type="button" aria-label="Cerrar animación"><svg class="icon"><use href="#icon-close" /></svg></button>
+      <div class="legend-video-content">
+        <span class="section-kicker" id="legend-video-category">ANIMACIÓN · LEYENDAS DE LA COSTA</span>
+        <h2 id="legend-video-title"></h2>
+        <div class="legend-video-player">
+          <video id="legend-video" controls playsinline preload="metadata" aria-label="Animación de la leyenda seleccionada"></video>
+          <p class="legend-video-error" id="legend-video-error" role="alert" hidden></p>
+          <section class="legend-video-ended" id="legend-video-ended" aria-labelledby="legend-video-ended-title" aria-hidden="true" inert>
+            <span class="section-kicker">FIN DE LA ANIMACIÓN</span>
+            <h3 id="legend-video-ended-title"></h3>
+            <p>Has llegado al final de esta leyenda. Continúa con la lectura para descubrir más.</p>
+            <div class="legend-video-ended-actions">
+              <div id="legend-video-ended-pdf"></div>
+              <button class="button legend-video-replay" type="button" data-legend-action="replay">Volver a ver la animación</button>
+              <button class="legend-video-back" type="button" data-legend-action="catalog">Volver al catálogo</button>
+            </div>
+          </section>
+
+          <section class="coastal-legends ancestral-myths section-shell" id="ancestral-myths" aria-labelledby="ancestral-myths-title">
+            <h2 id="ancestral-myths-title">Mitos Ancestrales</h2>
+            <p class="coastal-legends-note">Cada tarjeta reutiliza la portada general de esta sección.</p>
+            <div class="coastal-legend-grid"></div>
+          </section>
+        </div>
+        <div class="legend-video-actions" id="legend-video-actions"></div>
+      </div>
+    </dialog>
+    <div id="video-modal" class="modal-overlay" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-label="Video narrado de leyenda de la Sierra">
+        <button class="modal-close" type="button" aria-label="Cerrar video">&times;</button>
+        <video id="modal-video-player" controls playsinline></video>
+      </div>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
